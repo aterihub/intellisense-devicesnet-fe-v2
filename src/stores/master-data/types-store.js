@@ -26,9 +26,6 @@ export const useTypesStore = defineStore('types', {
 
         this.types.map((item, index) => {
           item.no = index + 1
-          // const formattedContractStart = moment(item.contractStart).format("YYYY-MM-DD")
-          // const formattedContractEnd = moment(item.contractEnd).format("YYYY-MM-DD")
-          // return { ...item, no }
         })
         console.log('types data', this.types)
         this.status.code = res.data.status

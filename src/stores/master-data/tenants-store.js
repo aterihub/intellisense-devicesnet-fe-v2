@@ -26,8 +26,8 @@ export const useTenantsStore = defineStore('tenants', {
 
         this.tenants.map((item, index) => {
           item.no = index + 1
-          item.formattedCreatedAt = moment(item.createdAt).format("YYYY-MM-DD")
-          item.formattedUpdatedAt = moment(item.updatedAt).format("YYYY-MM-DD")
+          item.formattedCreatedAt = moment(item.createdAt).format("YYYY-MM-DD hh:mm")
+          item.formattedUpdatedAt = moment(item.updatedAt).format("YYYY-MM-DD hh:mm")
         })
         console.log('tenants data', this.tenants)
         this.status.code = res.data.status
