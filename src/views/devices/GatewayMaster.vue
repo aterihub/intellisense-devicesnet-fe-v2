@@ -1,7 +1,8 @@
 <script setup>
 import SearchBar from '@/components/input/SearchBar.vue'
 import { onMounted, ref } from 'vue'
-import CreateModal from '@/components/modal/devices/CreateModal.vue'
+import CreateGatewayModal from '@/components/modal/devices/CreateGatewayModal.vue'
+import EditGatewayModal from '@/components/modal/devices/EditGatewayModal.vue'
 import { useGatewaysStore } from '@/stores/master-data/gateways-store';
 import { storeToRefs } from 'pinia';
 import { useLoadingStore } from '@/stores/loading-store'
@@ -15,7 +16,7 @@ onMounted(async () => {
 //stores
 const loadingStore = useLoadingStore()
 const gatewaysStore = useGatewaysStore()
-const { gateways } = storeToRefs(useGatewaysStore())
+const { gateways, getGatewaysLoading } = storeToRefs(useGatewaysStore())
 
 const modalActive = ref(false)
 const searchValue = ref()
@@ -63,9 +64,20 @@ async function deleteItem() {
   gatewaysStore.getGateways()
 }
 
+//edit gateway
+const isEditModalPops = ref(false)
+const formData = ref({})
+
+function editModalToggle(item) {
+  isEditModalPops.value = !isEditModalPops.value
+  formData.value = item
+}
+
 </script>
 <template>
-  <CreateModal :isOpen="isModalPops" @close="newModalToggle" title="Create New Device" />
+  <CreateGatewayModal :isOpen="isModalPops" @close="newModalToggle" title="Create New Gateway" />
+  <EditGatewayModal :isOpen="isEditModalPops" @close="isEditModalPops = !isEditModalPops" title="Edit Gateway"
+    :formData="formData" />
   <DeleteConfirmationModal :isOpen="isDelModalPops" @close="isDelModalPops = false" :item="selectedItem.alias"
     @delete="deleteItem" />
   <!-- <alert 
@@ -82,14 +94,13 @@ async function deleteItem() {
           <option value="0">Filter</option>
         </select>
         <div class="flex grow md:grow-0">
-          <BasicButton type="submit" class="primary" label="New Device" @click="newModalToggle()" />
+          <BasicButton type="submit" class="primary" label="New Gateway" @click="newModalToggle()" />
         </div>
       </div>
     </div>
   </div>
-  <EasyDataTable v-model:items-selected="itemsSelected" fixed-checkbox fixed-expand :rows-per-page="10"
-    table-class-name="customize-table" :headers="header" :items="gateways" theme-color="#1363df"
-    :search-value="searchValue">
+  <EasyDataTable fixed-expand :rows-per-page="10" table-class-name="customize-table" :headers="header" :items="gateways"
+    theme-color="#1363df" :search-value="searchValue" :loading="getGatewaysLoading">
     <template #item-operation="item">
       <div class="operation">
         <svg class="cursor-pointer hover:scale-110 duration-200" width="24" height="24" viewBox="0 0 24 24" fill="none"
