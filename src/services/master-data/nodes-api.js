@@ -10,8 +10,8 @@ export default {
   createNode(data) {
     return apiClient.post('devices',data)
   },
-  editNode(id) {
-    return apiClient.patch(`devices/${id}`)
+  editNode(id, data) {
+    return apiClient.patch(`devices/${id}`, data)
   },
   deleteNode(id) {
     return apiClient.delete(`devices/${id}`)
