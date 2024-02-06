@@ -53,7 +53,12 @@ const schema = yup.object({
 
 const onSubmit = async (values, { resetForm }) => {
   let newValues = values
-  newValues.groups = groups.value
+  
+  const newGroup = groups.value.map((data) => 
+    data.replace(/\s/g, '')
+  )
+  newValues.groups = newGroup
+  
   console.log(newValues)
   submitClicked = ++submitClicked
   if (submitClicked === 1) {
