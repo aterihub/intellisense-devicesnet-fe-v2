@@ -5,14 +5,14 @@
       <span class="error-message" v-show="errorMessage">{{ errorMessage }} !!!</span>
     </div>
     <input class="text-field" :id="name"
-      :name="props.name" :type="props.type" v-model="value" :placeholder="props.placeholder" />
+      :name="props.name" :type="props.type" v-model="value" :placeholder="props.placeholder" :required="props.required"/>
   </div>
 </template>
 
 <script setup>
 import { useField } from 'vee-validate'
 
-const props = defineProps(['name', 'label', 'type', 'placeholder', 'modelValue'])
+const props = defineProps(['name', 'label', 'type', 'placeholder', 'modelValue', 'required'])
 const { value, errorMessage } = useField(props.name)
 
 </script>
