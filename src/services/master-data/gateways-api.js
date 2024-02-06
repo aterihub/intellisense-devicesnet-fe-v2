@@ -10,8 +10,8 @@ export default {
   createGateway(data) {
     return apiClient.post('gateways',data)
   },
-  editGateway(id) {
-    return apiClient.patch(`gateways/${id}`)
+  editGateway(id, data) {
+    return apiClient.patch(`gateways/${id}`, data)
   },
   deleteGateway(id) {
     return apiClient.delete(`gateways/${id}`)

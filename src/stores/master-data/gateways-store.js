@@ -6,7 +6,17 @@ import moment from 'moment'
 export const useGatewaysStore = defineStore('Gateways', {
   state: () => ({
     gateways: ref([]),
-    status: ref({
+    getGatewaysStatus: ref({
+      isError: null,
+      message: null,
+      code: null,
+    }),
+    createGatewayStatus: ref({
+      isError: null,
+      message: null,
+      code: null,
+    }),
+    editGatewayStatus: ref({
       isError: null,
       message: null,
       code: null,
@@ -14,27 +24,31 @@ export const useGatewaysStore = defineStore('Gateways', {
     deleteGatewayLoading: ref(false),
     createGatewayLoading: ref(false),
     editGatewayLoading: ref(false),
-    isLoading: ref(false)
+    getGatewaysLoading: ref(false)
   }),
   actions: {
     async getGateways() {
-      this.isLoading = true
+      this.getGatewaysLoading = true
       try {
         const res = await gatewaysAPI.getGateways()
-        this.isLoading = false
+        this.getGatewaysLoading = false
         this.gateways = res.data.gateways
         this.gateways.map((item, index) => {
           item.no = index + 1
-          item.formattedCreatedAt = moment(item.createdAt).format("YYYY-MM-DD")
-          item.formattedUpdatedAt = moment(item.updatedAt).format("YYYY-MM-DD")
+          item.formattedCreatedAt = moment(item.createdAt).format("YYYY-MM-DD hh:mm")
+          item.formattedUpdatedAt = moment(item.updatedAt).format("YYYY-MM-DD hh:mm")
         })
         console.log('gateways data', this.gateways)
-        this.status.code = res.data.status
+        console.log(res)
+        this.getGatewaysStatus.code = res.status
+        this.getGatewaysStatus.isError = false
+        this.getGatewaysStatus.message = "Data Fetched"
       } catch (err) {
         console.error(err)
-        this.isLoading = false
-        this.status.message = err.response.data.error
-        this.status.code = err.response.data.status
+        this.getGatewaysLoading = false
+        this.getGatewaysStatus.code = err.response.data.status
+        this.getGatewaysStatus.message = JSON.stringify(err.response.data.data)
+        this.getGatewaysStatus.isError = true
         return err
       }
     },
@@ -44,15 +58,15 @@ export const useGatewaysStore = defineStore('Gateways', {
         const res = await gatewaysAPI.createGateway(data)
         console.log(res)
         this.createGatewayLoading = false
-        this.status.isError = false
-        this.status.message = 'Data Posted'
-        this.status.code = res.data.status
+        this.createGatewayStatus.isError = false
+        this.createGatewayStatus.message = 'Data Posted'
+        this.createGatewayStatus.code = res.data.status
       } catch (err) {
         console.error(err)
         this.createGatewayLoading = false
-        this.status.isError = true
-        this.status.message = err.response.data.error
-        this.status.code = err.response.data.status
+        this.createGatewayStatus.isError = true
+        this.createGatewayStatus.code = err.response.data.status
+        this.createGatewayStatus.message = err.response.data.data
         return err
       }
     },
@@ -78,13 +92,13 @@ export const useGatewaysStore = defineStore('Gateways', {
         const res = await gatewaysAPI.editGateway(id, data)
         console.log(res)
         this.editGatewayLoading = false
-        this.status.message = 'Data Updated'
-        this.status.code = res.data.status
+        this.editGatewayStatus.message = 'Data Updated'
+        this.editGatewayStatus.code = res.data.status
       } catch (err) {
         console.error(err)
         this.editGatewayLoading = false
-        this.status.message = err.response.data.error
-        this.status.code = err.response.data.status
+        this.editGatewayStatus.message = JSON.stringify(err.response.data.data)
+        this.editGatewayStatus.code = err.response.data.status
         return err
       }
     },
