@@ -21,7 +21,7 @@ const props = defineProps({
   name: { type: String, required: true },
   label: { type: String, default: null },
   options: { type: Array, required: true },
-  modelValue: { type: [String, Number], default: null }, // Allow for string or number values
+  modelValue: { type: [String, Number, Object], default: null }, // Allow for string or number values
 });
 
 const { value, errorMessage } = useField(props.name);
