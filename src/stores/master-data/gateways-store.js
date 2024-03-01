@@ -21,6 +21,11 @@ export const useGatewaysStore = defineStore('Gateways', {
       message: null,
       code: null,
     }),
+    deleteGatewayStatus: ref({
+      isError: null,
+      message: null,
+      code: null,
+    }),
     deleteGatewayLoading: ref(false),
     createGatewayLoading: ref(false),
     editGatewayLoading: ref(false),
@@ -76,13 +81,13 @@ export const useGatewaysStore = defineStore('Gateways', {
         const res = await gatewaysAPI.deleteGateway(id)
         console.log(res)
         this.deleteGatewayLoading = false
-        this.status.message = 'Data Deleted'
-        this.status.code = res.status
+        this.deleteGatewayStatus.message = 'Data Deleted'
+        this.deleteGatewayStatus.code = res.status
       } catch (err) {
         console.error(err)
         this.deleteGatewayLoading = false
-        this.status.message = err.response.data.error
-        this.status.code = err.response.data.status
+        this.deleteGatewayStatus.message = err.response.data.error
+        this.deleteGatewayStatus.code = err.response.data.status
         return err
       }
     },

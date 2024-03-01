@@ -4,9 +4,10 @@ import Tab from '@/components/tab/Tab.vue'
 import { useLocalStorage } from '@vueuse/core'
 import TypeMaster from './TypeMaster.vue'
 import TenantsMaster from './TenantsMaster.vue'
+import ApiKeyMaster from './ApiKeyMaster.vue'
 export default {
   components: {
-    Tab, TypeMaster, TenantsMaster
+    Tab, TypeMaster, TenantsMaster, ApiKeyMaster
   },
   props: ['id'],
 
@@ -20,6 +21,10 @@ export default {
       {
         title: 'Tenants',
         value: 'TenantsMaster',
+      },
+      {
+        title: 'API Key',
+        value: 'ApiKeyMaster',
       }
     ]
 
