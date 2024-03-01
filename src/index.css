@@ -20,6 +20,25 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
   border-radius: 100px;
 }
+input[type="date"] {
+  cursor: pointer;
+  user-select: none;
+}
+/* Target the calendar popup */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  /* Specify background color */
+  border-radius: 2px;
+  background-color: var(--color-accent1); /* Blue color */
+  color: var(--color-label-primary);
+  cursor: pointer;
+}
+
+/* Optionally, you can style the datepicker dropdown */
+input[type="date"]::-webkit-calendar-drop-down {
+  /* Specify styles for the dropdown */
+  border: 1px solid #3498db; /* Blue border */
+  background-color: #f2f2f2; /* Light gray background */
+}
 
 .form-wrapper {
   @apply flex flex-col mb-4 w-full gap-4
