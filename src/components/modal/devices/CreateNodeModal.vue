@@ -12,7 +12,7 @@
                 <BasicDropdown name="tenantId" placeholder="Tenant" label="Tenant" :options="tenants" />
                 <TypeDropdown name="type" placeholder="Device Type" label="Device Type" :options="types"
                   v-model="selectedType" @change="fillGroupList" />
-                <BasicInput v-if="Object.keys(selectedType).length !== 0 " v-for="(group, index) in type.groups" :name="groupPrefix + group"
+                <BasicInput v-for="(group, index) in type.groups" :name="groupPrefix + group"
                   type="text" :placeholder="group" :label="group" />
                 <BasicInput name="description" type="text" placeholder="Notes" label="Notes" />
                 <div class="flex justify-between gap-10">
@@ -45,6 +45,8 @@ const delay = (time) => new Promise((resolve) => setTimeout(resolve, time))
 onBeforeUpdate(() => {
   typesStore.getTypes()
   tenantsStore.getTenants()
+  type.value.groups = {}
+  selectedType.value = {}
 })
 
 //props
