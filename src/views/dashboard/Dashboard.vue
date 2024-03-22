@@ -17,7 +17,7 @@ const searchValue = ref()
 onMounted(async () => {
   while (whileState.value) {
     await telemetryStore.getTelemetryData()
-    await delay(10000)
+    await delay(5000)
   }
 })
 
