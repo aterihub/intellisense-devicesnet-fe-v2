@@ -99,7 +99,7 @@ function editModalToggle(item) {
       </div>
     </div>
   </div>
-  <EasyDataTable fixed-expand :rows-per-page="10" table-class-name="customize-table" :headers="header" :items="gateways"
+  <EasyDataTable fixed-expand :rows-per-page="25" table-class-name="customize-table" :headers="header" :items="gateways"
     theme-color="#1363df" :search-value="searchValue" :loading="getGatewaysLoading">
     <template #item-operation="item">
       <div class="operation">
