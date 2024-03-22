@@ -48,44 +48,44 @@ onUnmounted(() => {
             <div class="border border-opacity-60 rounded-lg px-6 py-6 shadow-sm flex flex-col gap-2"
               v-for="telemetry in telemetryData"
               :class="{ 'border-[#34C085] shadow-[#34C085]/50': telemetry.status === 'ONLINE', 'border-red-500 shadow-red-500/50': telemetry.status === 'OFFLINE' }">
-              <h1 class="font-medium text-lg">
+              <h1 class="font-medium text-lg text-label-primary">
                 {{ telemetry.alias }}
               </h1>
               <div class="flex justify-between">
                 <div class="flex flex-col gap-1">
                   <div class="flex text-sm gap-1">
-                    <p class="opacity-80 font-medium">SN:</p>
-                    <h2 class="opacity-80 font-semibold">{{ telemetry.device }}</h2>
+                    <p class="font-medium text-label-primary opacity-80">SN:</p>
+                    <h2 class="font-semibold text-label-primary opacity-90">{{ telemetry.device }}</h2>
                   </div>
                   <div class="flex text-sm gap-1">
-                    <p class="opacity-80 font-medium">Last Heard:</p>
-                    <p class="opacity-80 font-semibold">{{ telemetry._time }}</p>
+                    <p class="text-label-primary font-medium opacity-80 ">Last Heard:</p>
+                    <p class="text-label-primary font-semibold opacity-90">{{ telemetry._time }}</p>
                   </div>
                   <div class="flex text-sm gap-1">
-                    <p class="opacity-80 font-medium">Humidity:</p>
-                    <p class="opacity-80 font-semibold">{{ telemetry.humidity }}%</p>
+                    <p class="text-label-primary font-medium opacity-80">Humidity:</p>
+                    <p class="text-label-primary font-semibold opacity-90">{{ telemetry.humidity }}%</p>
                   </div>
                   <div class="flex text-sm gap-1">
-                    <p class="opacity-80 font-medium">Temperature:</p>
-                    <p class="opacity-80 font-semibold">{{ telemetry.temperature }}°C</p>
+                    <p class="text-label-primary font-medium opacity-80">Temperature:</p>
+                    <p class="text-label-primary font-semibold opacity-90">{{ telemetry.temperature }}°C</p>
                   </div>
                 </div>
                 <div class="flex flex-col gap-1">
                   <div class="flex text-sm gap-1">
-                    <p class="opacity-80 font-medium">Fw Version:</p>
-                    <p class="opacity-80 font-semibold">{{ telemetry.fwVersion }}</p>
+                    <p class="text-label-primary font-medium opacity-80">Fw Version:</p>
+                    <p class="text-label-primary font-semibold opacity-90">{{ telemetry.fwVersion }}</p>
                   </div>
                   <div class="flex text-sm gap-1">
-                    <p class="opacity-80 font-medium">Hw Version:</p>
-                    <p class="opacity-80 font-semibold">{{ telemetry.hwVersion }}</p>
+                    <p class="text-label-primary font-medium opacity-80">Hw Version:</p>
+                    <p class="text-label-primary font-semibold opacity-90">{{ telemetry.hwVersion }}</p>
                   </div>
                   <div class="flex text-sm gap-1">
-                    <p class="opacity-80 font-medium">Lora RSSI:</p>
-                    <p class="opacity-80 font-semibold">{{ telemetry.loraRssi }}</p>
+                    <p class="text-label-primary font-medium opacity-80">Lora RSSI:</p>
+                    <p class="text-label-primary font-semibold opacity-90">{{ telemetry.loraRssi }}</p>
                   </div>
                   <div class="flex text-sm gap-1">
-                    <p class="opacity-80 font-medium">Uptime:</p>
-                    <p class="opacity-80 font-semibold">{{ telemetry.uptime }}</p>
+                    <p class="text-label-primary font-medium opacity-80">Uptime:</p>
+                    <p class="text-label-primary font-semibold opacity-90">{{ telemetry.uptime }}</p>
                   </div>
                 </div>
               </div>
