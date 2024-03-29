@@ -144,9 +144,9 @@ const onSubmit = async (values, { resetForm }) => {
     }
   }
   newValues.group = groups
-  const { type: { name: typeName }, ...rest } = newValues;
+  const { ...rest } = newValues;
   const payload = {
-    type: typeName,
+    type: selectedType.value.name,
     ...rest
   }
 

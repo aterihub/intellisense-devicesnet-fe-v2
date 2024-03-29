@@ -70,7 +70,7 @@ const props = defineProps({
 const selectedType = ref({})
 const groupPrefix = 'group'
 async function fillGroupList() {
-  console.log(selectedType.value.id)
+  console.log(selectedType.value)
   await typesStore.getType(selectedType.value.id)
 }
 // Define custom events
@@ -145,9 +145,9 @@ const onSubmit = async (values, { resetForm }) => {
     }
   }
   newValues.group = groups
-  const { type: { name: typeName }, ...rest } = newValues;
+  const { ...rest } = newValues;
   const payload = {
-    type: typeName,
+    type: selectedType.value.name,
     ...rest
   }
 
