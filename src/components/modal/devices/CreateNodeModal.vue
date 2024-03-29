@@ -10,10 +10,21 @@
                 <BasicInput name="serialNumber" type="text" placeholder="Serial Number" label="Serial Number" />
                 <BasicInput name="alias" type="text" placeholder="Alias" label="Alias" />
                 <BasicDropdown name="tenantId" placeholder="Tenant" label="Tenant" :options="tenants" />
-                <TypeDropdown name="type" placeholder="Device Type" label="Device Type" :options="types"
-                  v-model="selectedType" @change="fillGroupList" />
-                <BasicInput v-for="(group, index) in type.groups" :name="groupPrefix + group"
-                  type="text" :placeholder="group" :label="group" />
+                <div class="input-wrapper border-label-secondary">
+                  <label for="type" class="text-[12px] font-semibold select-none text-label-primary">Device Type</label>
+                  <select name="type" v-model="selectedType" @change="fillGroupList" class="cursor-pointer text-sm"
+                    required>
+                    <option v-if="!types.length" class="text-sm" value="0" disabled selected>No Type Available
+                    </option>
+                    <option class="text-sm" v-for="deviceType in types" :key="deviceType.id" :value="deviceType">
+                      {{ deviceType.name }}
+                    </option>
+                  </select>
+                </div>
+                <!-- <TypeDropdown name="type" placeholder="Device Type" label="Device Type" :options="types"
+                  v-model="selectedType" @change="fillGroupList" /> -->
+                <BasicInput v-for="(group, index) in type.groups" :name="groupPrefix + group" type="text"
+                  :placeholder="group" :label="group" />
                 <BasicInput name="description" type="text" placeholder="Notes" label="Notes" />
                 <div class="flex justify-between gap-10">
                   <BasicButton type="button" class="secondary" :label="cancelLabel" @click="cancelForm" />
@@ -28,7 +39,7 @@
   </transition>
 </template>
 
-  
+
 <script setup>
 import TypeDropdown from '@/components/input/TypeDropdown.vue'
 import { Form as VeeForm } from 'vee-validate'
@@ -164,7 +175,7 @@ const onSubmit = async (values, { resetForm }) => {
 }
 
 </script>
-  
+
 <style scoped>
 .modal {
   @apply fixed top-0 left-0 w-full h-full overflow-x-hidden overflow-y-auto bg-[#ABADAF]/20 z-20
@@ -206,4 +217,12 @@ const onSubmit = async (values, { resetForm }) => {
 .button-wrapper {
   @apply flex justify-between gap-8
 }
+
+.input-wrapper {
+  @apply flex flex-col gap-1 text-left w-full px-4 py-2 rounded-[10px] border
+}
+
+select {
+  @apply cursor-pointer text-[14px] font-medium bg-transparent outline-none text-label-primary
+} 
 </style>
