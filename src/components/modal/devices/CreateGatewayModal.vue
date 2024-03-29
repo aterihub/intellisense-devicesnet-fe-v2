@@ -92,7 +92,6 @@ const schema = yup.object({
   serialNumber: yup.string().required().label(' '),
   alias: yup.string().required().label(' '),
   tenantId: yup.string().required().label(' '),
-  type: yup.object().required().label(' '),
   description: yup.string().required().label(' '),
 })
 
