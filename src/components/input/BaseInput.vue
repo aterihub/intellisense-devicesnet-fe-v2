@@ -15,6 +15,8 @@ import { useField } from 'vee-validate'
 const props = defineProps(['name', 'label', 'type', 'placeholder', 'modelValue', 'required'])
 const { value, errorMessage } = useField(props.name)
 
+console.log('bug',value)
+
 </script>
 
 <style scoped>
