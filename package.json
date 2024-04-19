@@ -16,7 +16,7 @@
     "lottie-web-vue": "^2.0.7",
     "moment": "^2.30.1",
     "pinia": "^2.1.7",
-    "vee-validate": "^4.8.1",
+    "vee-validate": "^4.5.11",
     "vue": "^3.3.10",
     "vue-router": "^4.2.5",
     "vue3-easy-data-table": "^1.5.47",
