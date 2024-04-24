@@ -7,7 +7,6 @@
             <h1 class="title">{{ title }}</h1>
             <VeeForm :validation-schema="schema" v-slot="{ handleSubmit }" as="div" ref="form">
               <form @submit="handleSubmit($event, onSubmit)" class="form-wrapper">
-                {{ props.formData }}
                 <BasicInput v-model="props.formData.serialNumber" name="serialNumber" type="text"
                   placeholder="Serial Number" label="Serial Number" />
                 <BasicInput v-model="props.formData.alias" name="alias" type="text" placeholder="Alias" label="Alias" />
