@@ -56,6 +56,10 @@ svg {
   @apply fill-accent-1 z-50
 }
 
+svg:hover {
+  @apply scale-110
+}
+
 svg:hover+.flying-text {
   @apply scale-100
 }
