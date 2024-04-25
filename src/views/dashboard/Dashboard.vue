@@ -63,39 +63,39 @@ onUnmounted(() => {
                   {{ telemetry.alias }}
                 </h1>
               </div>
-              <div class="flex flex-col xl:flex-row justify-between">
+              <div class="grid grid-cols-1 xl:grid-cols-2 justify-between">
                 <div class="flex flex-col gap-1">
-                  <div class="flex text-xs md:text-sm gap-1">
+                  <div class="flex text-[10px] sm:text-xs md:text-sm gap-1">
                     <p class="font-medium text-label-primary opacity-80">SN:</p>
                     <h2 class="font-semibold text-label-primary opacity-90">{{ telemetry.device }}</h2>
                   </div>
-                  <div class="flex text-xs md:text-sm gap-1">
+                  <div class="flex text-[10px] sm:text-xs md:text-sm gap-1">
                     <p class="text-label-primary font-medium opacity-80 ">Last Heard:</p>
                     <p class="text-label-primary font-semibold opacity-90">{{ telemetry._time }}</p>
                   </div>
-                  <div class="flex text-xs md:text-sm gap-1">
+                  <div class="flex text-[10px] sm:text-xs md:text-sm gap-1">
                     <p class="text-label-primary font-medium opacity-80">Humidity:</p>
                     <p class="text-label-primary font-semibold opacity-90">{{ telemetry.humidity }}%</p>
                   </div>
-                  <div class="flex text-xs md:text-sm gap-1">
+                  <div class="flex text-[10px] sm:text-xs md:text-sm gap-1">
                     <p class="text-label-primary font-medium opacity-80">Temperature:</p>
                     <p class="text-label-primary font-semibold opacity-90">{{ telemetry.temperature }}°C</p>
                   </div>
                 </div>
                 <div class="flex flex-col gap-1">
-                  <div class="flex text-xs md:text-sm gap-1">
+                  <div class="flex text-[10px] sm:text-xs md:text-sm gap-1">
                     <p class="text-label-primary font-medium opacity-80">Fw Version:</p>
                     <p class="text-label-primary font-semibold opacity-90">{{ telemetry.fwVersion }}</p>
                   </div>
-                  <div class="flex text-xs md:text-sm gap-1">
+                  <div class="flex text-[10px] sm:text-xs md:text-sm gap-1">
                     <p class="text-label-primary font-medium opacity-80">Hw Version:</p>
                     <p class="text-label-primary font-semibold opacity-90">{{ telemetry.hwVersion }}</p>
                   </div>
-                  <div class="flex text-xs md:text-sm gap-1">
+                  <div class="flex text-[10px] sm:text-xs md:text-sm gap-1">
                     <p class="text-label-primary font-medium opacity-80">Lora RSSI:</p>
                     <p class="text-label-primary font-semibold opacity-90">{{ telemetry.loraRssi }}</p>
                   </div>
-                  <div class="flex text-xs md:text-sm gap-1">
+                  <div class="flex text-[10px] sm:text-xs md:text-sm gap-1">
                     <p class="text-label-primary font-medium opacity-80">Uptime:</p>
                     <p class="text-label-primary font-semibold opacity-90">{{ telemetry.uptime }}</p>
                   </div>
