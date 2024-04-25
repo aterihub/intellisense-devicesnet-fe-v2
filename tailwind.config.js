@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         accent: {
           1: "var(--color-accent1)",
+          2: "var(--color-accent2)",
         },
         bkg: {
           base: "var(--color-bkg-base)",
