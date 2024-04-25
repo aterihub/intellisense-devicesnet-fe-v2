@@ -4,6 +4,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import { useTelemetryStore } from '@/stores/telemetry/telemetry-store'
 import SearchBar from '@/components/input/SearchBar.vue'
 import { storeToRefs } from 'pinia'
+import BaseIndicator from '@/components/indicator/BaseIndicator.vue'
 
 // const delay = require('delay')
 const delay = (time) => new Promise((resolve) => setTimeout(resolve, time))
@@ -45,12 +46,14 @@ onUnmounted(() => {
             <SearchBar v-model="searchValue" />
           </div>
           <div class="grid grid-cols-3 gap-4">
-            <div class="border border-opacity-60 rounded-lg px-6 py-6 shadow-sm flex flex-col gap-2"
-              v-for="telemetry in telemetryData"
-              :class="{ 'border-[#34C085] shadow-[#34C085]/50': telemetry.status === 'ONLINE', 'border-red-500 shadow-red-500/50': telemetry.status === 'OFFLINE' }">
-              <h1 class="font-medium text-lg text-label-primary">
-                {{ telemetry.alias }}
-              </h1>
+            <div class="border border-bkg-tertiary border-opacity-60 rounded-lg px-6 py-6 shadow-sm flex flex-col gap-2"
+              v-for="telemetry in telemetryData">
+              <div class="flex gap-5 items-center">
+                <BaseIndicator :status="telemetry.status" />
+                <h1 class="font-medium text-lg text-label-primary">
+                  {{ telemetry.alias }}
+                </h1>
+              </div>
               <div class="flex justify-between">
                 <div class="flex flex-col gap-1">
                   <div class="flex text-sm gap-1">
