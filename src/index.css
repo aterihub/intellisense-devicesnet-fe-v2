@@ -109,6 +109,9 @@ input:-webkit-autofill:active {
     --color-content: 210deg 40% 38%;
     --color-accent1: #015A6A;
     --color-accent2: #D9683C;
+    --color-red-accent: #E63946;
+    --color-green-accent: #57C09B;
+    --color-blue-accent: #2482E6;
   }
 
   :root[data-theme="dark"] {
@@ -122,5 +125,9 @@ input:-webkit-autofill:active {
     --color-content: 210deg 40% 98%;
     --color-accent1: #D9683C;
     --color-accent2: #015A6A;
+    --color-red-accent: #E63946;
+    --color-green-accent: #57C09B;
+    --color-blue-accent: #2482E6;
+
   }
 }

@@ -12,6 +12,11 @@ module.exports = {
           1: "var(--color-accent1)",
           2: "var(--color-accent2)",
         },
+        var: {
+          red: "var(--color-red-accent)",
+          green: "var(--color-green-accent)",
+          blue: "var(--color-blue-accent)",
+        },
         bkg: {
           base: "var(--color-bkg-base)",
           primary: "var(--color-bkg-primary)",
