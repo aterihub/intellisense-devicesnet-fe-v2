@@ -238,7 +238,7 @@ function apiKeyModalToggle() {
       </EasyDataTable>
     </div>
     <div class="rounded-lg border-2 border-bkg-secondary px-4 py-6 flex flex-col gap-8" v-if="!isEdit">
-      <h1 class="text-xl text-label-primary">Create New Tenant</h1>
+      <h1 class="text-xl text-label-primary">Create New API Key</h1>
       <VeeForm :validation-schema="schema" v-slot="{ handleSubmit }" as="div" ref="form">
         <form @submit="handleSubmit($event, onSubmit)" class="form-wrapper">
           <BaseInput name="username" type="text" placeholder="Name" label="Name" />

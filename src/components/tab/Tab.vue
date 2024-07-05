@@ -39,22 +39,22 @@ export default {
   @apply flex justify-between w-full border border-bkg-tertiary rounded-lg shadow-inner p-1 bg-bkg-secondary gap-2
 }
 button {
-  @apply disabled:opacity-75 flex justify-center items-center relative text-label-primary cursor-pointer py-[6px]  rounded-md
+  @apply disabled:opacity-75 flex justify-center items-center relative text-label-secondary cursor-pointer py-[6px]  rounded-md
     w-[full] text-[10px] sm:text-[14px] font-medium px-6
 } 
 
 button:hover {
-  @apply  bg-bkg-primary text-label-primary 
+  @apply  bg-bkg-primary text-accent-1  
   transition-colors duration-700 
 }
 
 .active {
-  @apply bg-bkg-primary text-label-primary  
+  @apply bg-bkg-primary text-accent-1  
   transition-colors duration-300 
 }
 
 .active:hover {
-  @apply bg-bkg-primary text-label-primary  
+  @apply bg-bkg-primary text-accent-1 
   transition-colors duration-300 cursor-default
 }
 

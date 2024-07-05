@@ -22,7 +22,7 @@ export const useNodesStore = defineStore('Nodes', {
       try {
         const res = await nodesAPI.getNodes()
         this.getNodesLoading = false
-        this.nodes = res.data.devices
+        this.nodes = res.data.nodes
         this.nodes.map((item, index) => {
           item.no = index + 1
           item.formattedCreatedAt = moment(item.createdAt).format("YYYY-MM-DD hh:mm")

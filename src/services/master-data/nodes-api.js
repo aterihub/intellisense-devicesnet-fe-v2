@@ -2,18 +2,18 @@ import apiClient from "../api";
  
 export default {
   getNodes() {
-    return apiClient.get('devices')
+    return apiClient.get('nodes')
   },
   getNode(id) {
-    return apiClient.get(`devices/${id}`)
+    return apiClient.get(`nodes/${id}`)
   },
   createNode(data) {
-    return apiClient.post('devices',data)
+    return apiClient.post('nodes',data)
   },
   editNode(id, data) {
-    return apiClient.patch(`devices/${id}`, data)
+    return apiClient.patch(`nodes/${id}`, data)
   },
   deleteNode(id) {
-    return apiClient.delete(`devices/${id}`)
+    return apiClient.delete(`nodes/${id}`)
   },
 }

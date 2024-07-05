@@ -54,9 +54,9 @@ const onSubmit = async (values, { resetForm }) => {
 
   if (submitClicked === 2) {
     await tenantsStore.createTenant(values)
+    modalActive.value = true
     submitLabel = 'Submit'
     submitClicked = 0
-    modalActive.value = true
     if (status.value.isError) {
       closeNotification()
     } else {

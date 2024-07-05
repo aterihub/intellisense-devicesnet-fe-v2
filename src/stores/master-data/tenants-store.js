@@ -34,7 +34,7 @@ export const useTenantsStore = defineStore('tenants', {
       } catch (err) {
         console.error(err)
         this.isLoading = false
-        this.status.message = err.response.data.error
+        this.status.message = err.response.data.message
         this.status.code = err.response.data.status
         return err
       }
@@ -52,7 +52,7 @@ export const useTenantsStore = defineStore('tenants', {
         console.error(err)
         this.createTenantLoading = false
         this.status.isError = true
-        this.status.message = err.response.data.error
+        this.status.message = err.response.data.message
         this.status.code = err.response.data.status
         return err
       }
@@ -68,7 +68,7 @@ export const useTenantsStore = defineStore('tenants', {
       } catch (err) {
         console.error(err)
         this.deleteTenantLoading = false
-        this.status.message = err.response.data.error
+        this.status.message = err.response.data.message
         this.status.code = err.response.data.status
         return err
       }
@@ -84,7 +84,7 @@ export const useTenantsStore = defineStore('tenants', {
       } catch (err) {
         console.error(err)
         this.editTenantLoading = false
-        this.status.message = err.response.data.error
+        this.status.message = err.response.data.message
         this.status.code = err.response.data.status
         return err
       }

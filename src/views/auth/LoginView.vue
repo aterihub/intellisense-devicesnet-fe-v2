@@ -43,7 +43,7 @@ import { loginSchema } from '@/composable/authSchema'
           </span> 
         </p>
       </div>
-      <div class="w-full xl:w-[463px] xl:px-10 xl:py-[42px] bg-bkg-primary rounded-lg flex-col justify-start items-start gap-8 flex">
+      <div class="w-full xl:w-[463px] xl:px-10 xl:py-[42px] px-[2px] py-[20px] bg-bkg-primary rounded-lg flex-col justify-start items-start gap-8 flex">
         <p class="text-label-primary text-xl font-medium">Sign In</p>
         <VeeForm :validationSchema="loginSchema" v-slot="{ handleSubmit }" as="div" class="w-full">
           <form  @submit="handleSubmit($event, onSubmit)" class="form-wrapper" >
